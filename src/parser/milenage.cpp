@@ -275,10 +275,10 @@ void f5star( u8 k[16], u8 rand[16],
 void ComputeOPc( u8 op_c[16], u8 op[16] )
 {
   u8 i;
-  
-  RijndaelEncrypt( op, op_c );
+  // we already provide the OPc, no computing needed
+//  RijndaelEncrypt( op, op_c );
   for (i=0; i<16; i++)
-    op_c[i] ^= op[i];
+    op_c[i] = op[i]; //op_c[i] ^= op[i];
 
   return;
 } /* end of function ComputeOPc */
